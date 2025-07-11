@@ -1,97 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ma’amkano Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ma'amkano Style AI</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
       text-align: center;
-      padding: 2rem;
-      background-color: #fff;
-      color: #111;
+    }
+    header {
+      padding: 30px;
     }
     header img {
-      display: block;
-      margin: 0 auto 1rem auto;
-      max-width: 150px;
-      height: auto;
+      width: 120px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
     }
     form {
-      margin-top: 2rem;
+      margin-top: 20px;
     }
     input[type="email"] {
-      padding: 0.5rem;
+      padding: 10px;
       width: 250px;
-      max-width: 90%;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 4px;
     }
     button {
-      padding: 0.5rem 1.5rem;
-      background-color: #111;
-      color: white;
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #000;
+      color: #fff;
       border: none;
-      border-radius: 5px;
-      margin-left: 0.5rem;
+      border-radius: 4px;
       cursor: pointer;
     }
-    #success-popup {
+    .success-popup {
       display: none;
-      margin-top: 1rem;
-      padding: 1rem;
-      background-color: #d1e7dd;
-      color: #0f5132;
-      border: 1px solid #badbcc;
-      border-radius: 8px;
-      animation: fadeIn 0.5s ease-in-out;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="maamkano-logo.jpg" alt="Ma’amkano Logo" />
-    <h1>Ma’amkano Style</h1>
-    <p>Your personal AI fashion assistant is coming soon.</p>
+    <img src="https://maamkano-style.netlify.app/maamkano-logo.png" alt="Ma'amkano Logo" />
+    <h1>Ma’amkano Style AI</h1>
+    <p>The Future of AI-Powered Fashion Styling</p>
   </header>
 
-  <form id="signup-form">
-    <input type="email" name="email" placeholder="Your email address" required />
+  <form action="https://formspree.io/f/mblyvrnb" method="POST" onsubmit="showSuccessPopup(); return true;">
+    <input type="email" name="email" placeholder="Enter your email" required />
     <button type="submit">Notify Me</button>
   </form>
 
-  <div id="success-popup">
-    🎉 You're in! Thanks for signing up.
-  </div>
+  <div class="success-popup" id="successPopup">✅ Thanks! You’ll be notified soon.</div>
+
+  <!-- 🔗 Article Section -->
+  <section id="blog" style="padding: 40px; background-color: #f9f9f9;">
+    <h2 style="font-size: 28px; margin-bottom: 10px;">📢 Read Our Latest Article</h2>
+    <p style="font-size: 18px;">Discover how AI is transforming fashion—and how Ma’amkano is leading the charge.</p>
+    <a href="https://medium.com/@maamkanoai/how-ai-is-revolutionizing-fashion-and-why-maamkano-is-leading-the-charge-0d041004093d" 
+       target="_blank" 
+       style="display: inline-block; margin-top: 20px; padding: 12px 25px; background-color: #000; color: white; border-radius: 5px; text-decoration: none;">
+      🔗 Read on Medium
+    </a>
+  </section>
+
+  <footer>
+    &copy; 2025 Ma'amkano Inc. All rights reserved.
+  </footer>
 
   <script>
-    const form = document.getElementById('signup-form');
-    const popup = document.getElementById('success-popup');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      const response = await fetch('https://formspree.io/f/mblyvrnb', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
-
-      if (response.ok) {
-        form.reset();
-        popup.style.display = 'block';
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      }
-    });
+    function showSuccessPopup() {
+      setTimeout(() => {
+        document.getElementById('successPopup').style.display = 'block';
+      }, 1000);
+    }
   </script>
 
 </body>
